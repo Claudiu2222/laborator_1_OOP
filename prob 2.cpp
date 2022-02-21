@@ -1,5 +1,6 @@
 //PROBLEMA 2
 #include <stdio.h>
+#include<iostream>
 #include <stdlib.h>
 #include<cstring>
 #include<cmath>
@@ -8,18 +9,18 @@ int functieStringToNumber(char number[200])
 {
     int sizeString = strlen(number);
     int numberUpdated = 0;
-    for(int i = 0; i < sizeString; i++)
+    for (int i = 0; i < sizeString; i++)
     {
         numberUpdated += pow(10, sizeString - i - 1) * (number[i] - '0');
     }
     return numberUpdated;
 
 }
-bool verificareString( char number[200])
+bool verificareString(char number[200])
 {
-    for (int i=0; i<strlen(number); i++)
+    for (int i = 0; i < strlen(number); i++)
     {
-        if(isdigit(number[i]) == 0)
+        if (isdigit(number[i]) == 0)
             return false;
     }
     return true;
@@ -27,8 +28,8 @@ bool verificareString( char number[200])
 int main()
 {
     FILE* fileProblemaUnu;
-    fileProblemaUnu = fopen("in.txt","r");
-    if(fileProblemaUnu != NULL)
+    fileProblemaUnu = fopen("in.txt", "r");
+    if (fileProblemaUnu != NULL)
     {
         int okk = 0;
         unsigned sum = 0;
@@ -37,7 +38,7 @@ int main()
         {
 
             myString[strlen(myString) - 1] = '\0';
-            if(verificareString(myString) == true)
+            if (verificareString(myString) == true)
                 sum += functieStringToNumber(myString);
             else
             {
@@ -46,9 +47,9 @@ int main()
                 break;
             }
         }
-        if(okk == 0)
-            printf("SUMA ESTE : %d",sum);
-
+        if (okk == 0)
+            printf("SUMA ESTE : %d", sum);
+        fclose(fileProblemaUnu);
 
     }
     else
